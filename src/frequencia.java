@@ -66,12 +66,7 @@ public class frequencia {
         char[] decifrada = texto.toCharArray();
         for(int i = 0; i < decifrada.length; i++){
             if(charPosicao.get(decifrada[i]) != null){
-                if(posicaoChar.get(charPosicao.get(decifrada[i]) + k) == null){
-                    decifrada[i] = posicaoChar.get(charPosicao.get(decifrada[i]) + k - 62);
-                }
-                else {
-                    decifrada[i] = posicaoChar.get(charPosicao.get(decifrada[i]) + k);
-                }
+                decifrada[i] = posicaoChar.get((charPosicao.get(decifrada[i]) + k)%62);
             }
         }
         System.out.println(decifrada);
