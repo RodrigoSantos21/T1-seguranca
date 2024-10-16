@@ -1,6 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
 
 public class frequencia {
     public HashMap<Character, Integer> charPosicao = new HashMap<Character, Integer>();
@@ -26,10 +33,10 @@ public class frequencia {
         }
         this.montaHashs();
         this.montaProporcaoTexto(texto.toString());
-        this.frequencia();
+        this.decifrarCesar(texto.toString(), this.frequencia());
     }
 
-    public void frequencia(){
+    public int frequencia(){
         List<Character> letrasTextoOrd = new ArrayList<Character>(proporcaoTextoOrd.keySet());
         List<Character> letrasPortOrd = new ArrayList<Character>(proporcaoPortuguesOrd.keySet());
         Collections.reverse(letrasPortOrd);
@@ -52,7 +59,22 @@ public class frequencia {
             }
         }
         aparicaoChave.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEachOrdered(entry-> aparicaoChaveOrd.put(entry.getKey(), entry.getValue()));
-        System.out.println(aparicaoChaveOrd);
+        return aparicaoChaveOrd.lastEntry().getKey();
+    }
+
+    public void decifrarCesar(String texto, int k){
+        char[] decifrada = texto.toCharArray();
+        for(int i = 0; i < decifrada.length; i++){
+            if(charPosicao.get(decifrada[i]) != null){
+                if(posicaoChar.get(charPosicao.get(decifrada[i]) + k) == null){
+                    decifrada[i] = posicaoChar.get(charPosicao.get(decifrada[i]) + k - 62);
+                }
+                else {
+                    decifrada[i] = posicaoChar.get(charPosicao.get(decifrada[i]) + k);
+                }
+            }
+        }
+        System.out.println(decifrada);
     }
     public void montaProporcaoTexto(String texto){
         char [] proporcao = texto.toCharArray();
