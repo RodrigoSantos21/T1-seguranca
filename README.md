@@ -14,7 +14,7 @@ Repositório para o trabalho 1 da disciplina de Segurança de Redes e Sistemas d
   - Com o caractere mais frequente no português e com o mais frequente no texto cifrado, é checado o quanto foi deslocado, e assim por diante com os outros caracteres.
   - Ao final temos o deslocamento mais recorrente, e por conseguinte, a chave utilizada na cifra.
 ---
-- ### Cifra de vernam
+- ### Cifrador de vernam
   - Um cifrador mais robusto e confiável, desde a sua geração de chave até sua decifração.
   - Para gerar uma chave, ela deve ser primeiro do mesmo tamanho do texto, e para garantir segurança é selecionado aleatoriamente um caractere do alfabeto para cada caractere do texto a ser cifrado, incluindo espaços e vírgulas, pois dificulta o reconhecimento de padrões.
   - Para cifrar o texto, é realizada uma operação XOR bit a bit de cada par caractere alfabeto-caractere texto.
