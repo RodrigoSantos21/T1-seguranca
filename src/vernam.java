@@ -9,11 +9,11 @@ public class vernam {
     char [] alfabeto = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9'};
     String chave = "";
     String textoCifrado = "";
-    String textoDescifrado = "";
+    String textoDecifrado = "";
     public void main(String[] args){
         StringBuilder texto = new StringBuilder();
         try{
-            File arquivo = new File("C:/Users/rodri/Downloads/T1-seguranca/src/texto-aberto.txt");
+            File arquivo = new File("src/texto-aberto.txt");
             Scanner scan = new Scanner(arquivo);
             while (scan.hasNextLine()) {
                 texto.append(scan.nextLine());
@@ -25,8 +25,8 @@ public class vernam {
         System.out.println("Chave: " + chave);
         this.textoCifrado = this.cifrar(texto.toString(), this.chave);
         System.out.println("Texto cifrado: " + textoCifrado);
-        this.textoDescifrado = this.descifrar(textoCifrado, chave);
-        System.out.println("Texto descifrado: " + textoDescifrado);
+        this.textoDecifrado = this.descifrar(textoCifrado, chave);
+        System.out.println("Texto decifrado: " + textoDecifrado);
     }
 
     public String descifrar(String textoCifrado, String chave){
